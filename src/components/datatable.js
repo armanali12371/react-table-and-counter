@@ -24,16 +24,37 @@ export default function Datatable({data}){
         {dataField: "email" ,text:"User Email"},
         {dataField: "position" ,text:"User Position"}
     ]
+    let allQuotes = Number(data.length);
+    const options = {
+        paginationSize: 5,
+        pageStartIndex: 1,
+        firstPageText: 'First',
+        prePageText: 'Back',
+        nextPageText: 'Next',
+        lastPageText: 'Last',
+        nextPageTitle: 'First page',
+        prePageTitle: 'Pre page',
+        firstPageTitle: 'Next page',
+        lastPageTitle: 'Last page',
+        sizePerPageList: [{
+          text: 'show 5', value: 5
+        }, {
+          text: 'show 10', value: 10
+        }, {
+          text: 'Show all', value: allQuotes
+        }]
+      };
     useEffect(() => {
         getUserData();
     })
+
 	return (
         <div>
             {loading ? (  <BootstrapTable 
             keyField = "name"
             data={employee}
             columns={columns}
-            pagination={paginationFactory()}
+            pagination={paginationFactory(options)}
             />) : (
                 <ReactBootstrap.Spinner animation="border" />
             )}

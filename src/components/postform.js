@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import '../App.css';
-
 class Postform extends Component {
+
     constructor(props) {
         super(props)
     
@@ -12,7 +12,7 @@ class Postform extends Component {
             position: ''
         }
     }
-  
+   
 
     changeHandler = (e) =>{
         this.setState({ [e.target.name]: e.target.value })
@@ -21,12 +21,8 @@ class Postform extends Component {
         e.preventDefault()
         axios 
         .post('https://6096be38116f3f00174b38a5.mockapi.io/employee/add', this.state)
-        .then(response => {
-            console.log(response)
-        })
-        .catch(error => {
-            console.log(error)
-        })
+        window.location.reload(false);
+       
     }
     render(){
         const { name, email, position } = this.state
