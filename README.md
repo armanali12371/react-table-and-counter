@@ -1,4 +1,4 @@
-React-table And Counter
+
 React-table And Counter application created using reactjs along with MockApi
 
 Getting started
